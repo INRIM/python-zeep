@@ -22,6 +22,7 @@ def qname_attr(
 def as_qname(value: str, nsmap, target_namespace=None) -> etree.QName:
     """Convert the given value to a QName"""
     value = value.strip()  # some xsd's contain leading/trailing spaces
+    value = value.replace("/", "-") 
     if ":" in value:
         prefix, local = value.split(":")
 
